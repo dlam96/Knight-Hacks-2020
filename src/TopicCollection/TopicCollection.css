@@ -1,0 +1,21 @@
+
+
+.underline
+{
+    width: 1168px;
+}
+
+.cardSize
+{
+    display: inline-block;
+    width: 10%;
+    height: 10%;
+}
+
+.cardProps
+{
+    column-gap: 5% !important;
+}
+
+
+
