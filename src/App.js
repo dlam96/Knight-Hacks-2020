@@ -1,7 +1,10 @@
 import React from "react";
 import Navbar from "./Components/Navbar/Navbar.js";
 import Codeeditor from "./Components/CodeEditor/Codeeditor.js";
+import CardMenu from "./Components/CardMenu/CardMenu.js";
 import { makeStyles } from "@material-ui/core";
+import { Route, Switch, Redirect } from "react-router-dom";
+
 const useStyles = makeStyles((theme) => ({
   container: {
     // flexGrow: 1,
@@ -16,7 +19,15 @@ function App() {
   return (
     <div className={classes.container}>
       <Navbar />
-      <Codeeditor />
+      <Switch>
+        <Route exact path="/">
+          <CardMenu />
+        </Route>
+        <Route exact path="/CodeEditor">
+          <Codeeditor />
+        </Route>
+      </Switch>
+
       <link
         rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
