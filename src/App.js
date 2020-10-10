@@ -10,18 +10,16 @@ export default function App()
 
   return (
     <div>
-      <div>
-        FE Academy
-      </div>
 
-      <div style={{backgroundColor: "#D1D1D1"}}>
-
+      <div style={{backgroundColor: "#D1D1D1", width: "1366px", height: "78px"}}>
         {/* use react router on topic and test */}
-        <span>By Topic</span>
-        &nbsp;
-        <span className="vl"></span>
-        &nbsp;
-        <span>by Test</span>
+        <div>
+          <span>By Topic</span>
+          &nbsp;
+          <span className="vl"></span>
+          &nbsp;
+          <span>by Test</span>
+        </div>
       </div>
 
       <TopicCollection/>
