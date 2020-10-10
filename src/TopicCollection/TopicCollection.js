@@ -10,7 +10,7 @@ export default function TopicCollection()
 
     return (
         <div>
-            <div style={{marginLeft: "5%"}}>
+            <div style={{marginLeft: "5%", marginTop: "2.5%"}}>
                 Topic 1
             </div>
             <hr className="underline" />

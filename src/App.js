@@ -3,17 +3,15 @@ import './App.css';
 import TopicCollection from './TopicCollection/TopicCollection';
 
 
-
 // jshint ignore : start
 export default function App()
 {
 
   return (
     <div>
-
       <div style={{backgroundColor: "#D1D1D1", width: "1366px", height: "78px"}}>
         {/* use react router on topic and test */}
-        <div>
+        <div style={{paddingTop: "2%", paddingLeft: "2%"}}>
           <span>By Topic</span>
           &nbsp;
           <span className="vl"></span>
@@ -24,8 +22,6 @@ export default function App()
 
       <TopicCollection/>
       <TopicCollection/>
-
-
     </div>
   );
 }

@@ -19,7 +19,7 @@ export default function TopicCard()
                 <CardContent>
                     <Typography variant="h5" component="h2">
                         Title
-                            </Typography>
+                    </Typography>
                 </CardContent>
             </Card>
         </div>
