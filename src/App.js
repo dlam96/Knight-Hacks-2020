@@ -1,27 +1,29 @@
 import React from 'react';
 import './App.css';
-import TopicCollection from './TopicCollection/TopicCollection';
+import Collection from './TopicCollection/Collection';
+import Button from '@material-ui/core/Button';
 
 
 // jshint ignore : start
 export default function App()
 {
+  const [isTopic, setFlag] = React.useState(false);
 
   return (
     <div>
       <div style={{backgroundColor: "#D1D1D1", width: "1366px", height: "78px"}}>
-        {/* use react router on topic and test */}
+        {/* set flag based on topic and test */}
         <div style={{paddingTop: "2%", paddingLeft: "2%"}}>
-          <span>By Topic</span>
+          <span><Button onClick={() => setFlag(true)}>By Topic</Button></span>
           &nbsp;
           <span className="vl"></span>
           &nbsp;
-          <span>by Test</span>
+          <span><Button onClick={()=> setFlag(false)}>By Test</Button></span>
         </div>
       </div>
 
-      <TopicCollection/>
-      <TopicCollection/>
+      <Collection id={1} isTopic={isTopic} term={"Spring 2020"}/>
+      <Collection id={2} isTopic={isTopic} term={"Fall 2019"}/>
     </div>
   );
 }
