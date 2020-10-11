@@ -3,7 +3,6 @@ import {
   AppBar,
   Toolbar,
   Typography,
-  Button,
   makeStyles,
   IconButton,
 } from "@material-ui/core";
@@ -31,12 +30,10 @@ export default function Navbar(props) {
   let location = useLocation();
   let history = useHistory();
   const [showReturn, setReturn] = useState(false);
-
+  // shows return button if in codeeditor logic
   useEffect(() => {
-    console.log("location", location);
     let slash = location.pathname.lastIndexOf("/");
     let word = location.pathname.slice(slash + 1);
-    console.log("word", word);
     if (word === "CodeEditor") {
       setReturn(true);
     } else {
@@ -59,7 +56,7 @@ export default function Navbar(props) {
         <Typography variant="h6" className={classes.title}>
           FE Academy
         </Typography>
-        <Button color="inherit">Login</Button>
+        {/* <Button color="inherit">Login</Button> */}
       </Toolbar>
     </AppBar>
   );
