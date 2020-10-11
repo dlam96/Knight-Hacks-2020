@@ -1,29 +1,73 @@
 import React from 'react';
-import './App.css';
 import Collection from './TopicCollection/Collection';
 import Button from '@material-ui/core/Button';
+import Link from '@material-ui/core/Link';
+import { makeStyles } from '@material-ui/core/styles';
+import Grid from '@material-ui/core/Grid';
+import Divider from '@material-ui/core/Divider';
+import Box from '@material-ui/core/Box';
 
+
+
+const useStyles = makeStyles((theme) => ({
+  vl: {
+    borderLeft: '1px solid black',
+    height: '30px',
+  },
+
+
+  root: {
+    width: 'fit-content',
+    border: `1px solid ${theme.palette.divider}`,
+    borderRadius: theme.shape.borderRadius,
+    backgroundColor: theme.palette.background.paper,
+    color: theme.palette.text.secondary,
+    '& svg': {
+      margin: theme.spacing(1.5),
+    },
+    '& hr': {
+      margin: theme.spacing(0, 0.5),
+    },
+    padding: "10px",
+  },
+}));
 
 // jshint ignore : start
 export default function App()
 {
   const [isTopic, setFlag] = React.useState(false);
+  const classes = useStyles();
+
+  function SetTrue(e)
+  {
+    e.preventDefault();
+    setFlag(true);
+  }
+
+  function SetFalse(e)
+  {
+    e.preventDefault();
+    setFlag(false);
+  }
 
   return (
     <div>
-      <div style={{backgroundColor: "#D1D1D1", width: "1366px", height: "78px"}}>
-        {/* set flag based on topic and test */}
-        <div style={{paddingTop: "2%", paddingLeft: "2%"}}>
-          <span><Button onClick={() => setFlag(true)}>By Topic</Button></span>
-          &nbsp;
-          <span className="vl"></span>
-          &nbsp;
-          <span><Button onClick={()=> setFlag(false)}>By Test</Button></span>
-        </div>
-      </div>
+      <Grid
+        container
+        direction="column"
+        justify="center"
+        alignItems="center"
+        style={{ backgroundColor: "#D1D1D1", height: "78px" }}
+      >
+        <Grid container alignItems="center" className={classes.root}>
+          <Link href="/" onClick={SetTrue}>By Topic</Link>
+          <Divider orientation="vertical" flexItem />
+          <Link href="/" onClick={SetFalse}>By Test</Link>
+        </Grid>
+      </Grid>
 
-      <Collection id={1} isTopic={isTopic} term={"Spring 2020"}/>
-      <Collection id={2} isTopic={isTopic} term={"Fall 2019"}/>
+      <Collection id={1} isTopic={isTopic} term={"Spring 2020"} />
+      <Collection id={2} isTopic={isTopic} term={"Fall 2019"} />
     </div>
   );
 }
