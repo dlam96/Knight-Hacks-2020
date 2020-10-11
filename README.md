@@ -22,7 +22,7 @@
     An interactive coding environment that teaches Computer Science fundamentals!
     <br />
     <br />
-    <a href="https://github.com/dlam96/Knight-Hacks-2020/">View Demo</a>
+    <a href="https://devpost.com/software/fe-academy?ref_content=user-portfolio&ref_feature=in_progress">View Demo</a>
     ·
     <a href="https://github.com/dlam96/Knight-Hacks-2020/issues">Report Bug</a>
     ·
