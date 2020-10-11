@@ -54,7 +54,7 @@
   </a>
 </p>
 
-At the University of Central Florida, emerging Computer Science students are required to take a Foundation Exam (FE) in order to get accepted into the college. Although there are many great resources available online to learn about Data Structures and Algorithms, I didn't find one that really suit my needs when I was a student studying for the FE exam so we created FE Academy. I wanted to create an immersive, interactive experience so amazing that it'll be the last resource you'll ever need to prepare for the Foundation Exam.
+At the University of Central Florida, emerging Computer Science students are required to take a Foundation Exam (FE) in order to get accepted into the college. Although there are many great resources available online to learn about Data Structures and Algorithms, our team didn't find one that really suit my needs when we were students studying for the FE exam so we created FE Academy. We wanted to create an immersive, interactive experience so amazing that it'll be the last resource you'll ever need to prepare for the Foundation Exam.
 
 Here's why:
 * Your time should be focused on mastering Computer Science fundamentals, not searching high and low trying to find the right resources.
