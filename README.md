@@ -12,7 +12,7 @@
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
-  <a href="https://github.com/dlam96/Knight-Hacks-2020">
+  <a href="https://devpost.com/software/fe-academy?ref_content=user-portfolio&ref_feature=in_progress">
     <img src="images/logo.png" alt="Logo" width="80" height="80">
   </a>
 
