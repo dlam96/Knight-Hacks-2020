@@ -113,6 +113,7 @@ Project Link: [DevPost](https://devpost.com/software/fe-academy?ref_content=user
 <!-- ACKNOWLEDGEMENTS -->
 ## Acknowledgements
 * [Knight Hacks](https://knighthacks.org/)
+* [FE Academy BackEnd Repo](https://github.com/JustinHawtree/FoundationHelper_KnightHacks2020)
 
 
 
