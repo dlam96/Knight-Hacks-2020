@@ -1,12 +1,14 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import {
   AppBar,
   Toolbar,
   Typography,
   Button,
   makeStyles,
+  IconButton,
 } from "@material-ui/core";
-
+import { ArrowBack } from "@material-ui/icons";
+import { useLocation, useHistory } from "react-router-dom";
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
@@ -19,13 +21,41 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
     color: "#FF8F40",
   },
+  icon: {
+    color: "#FF8F40",
+  },
 }));
 
 export default function Navbar(props) {
   const classes = useStyles();
+  let location = useLocation();
+  let history = useHistory();
+  const [showReturn, setReturn] = useState(false);
+
+  useEffect(() => {
+    console.log("location", location);
+    let slash = location.pathname.lastIndexOf("/");
+    let word = location.pathname.slice(slash + 1);
+    console.log("word", word);
+    if (word === "CodeEditor") {
+      setReturn(true);
+    } else {
+      setReturn(false);
+    }
+  }, [location, setReturn]);
+
+  const handleReturn = () => {
+    history.push("/");
+  };
   return (
     <AppBar position="static" className={classes.navbar}>
       <Toolbar>
+        {showReturn ? (
+          <IconButton className={classes.icon} onClick={handleReturn}>
+            <ArrowBack />
+          </IconButton>
+        ) : null}
+
         <Typography variant="h6" className={classes.title}>
           FE Academy
         </Typography>

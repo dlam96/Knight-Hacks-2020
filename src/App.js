@@ -3,7 +3,7 @@ import Navbar from "./Components/Navbar/Navbar.js";
 import Codeeditor from "./Components/CodeEditor/Codeeditor.js";
 import CardMenu from "./Components/CardMenu/CardMenu.js";
 import { makeStyles } from "@material-ui/core";
-import { Route, Switch, Redirect } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   container: {

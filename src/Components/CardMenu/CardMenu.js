@@ -1,17 +1,6 @@
 import React from "react";
 import Cards from "../Cards/Cards.js";
-import {
-  Card,
-  CardActionArea,
-  CardActions,
-  CardContent,
-  CardMedia,
-  Container,
-  Grid,
-  makeStyles,
-  Typography,
-  Divider,
-} from "@material-ui/core";
+import { Container, Grid, makeStyles, Typography } from "@material-ui/core";
 import LinkedList from "./linkedList.png";
 import BST from "./bst.png";
 import Summation from "./summation.gif";
@@ -80,7 +69,6 @@ export default function CardMenu() {
                 item
                 key={data.id}
                 xs={3}
-                spacing={3}
                 className={classes.cards}
                 onClick={() => handleClick(data.path)}
               >

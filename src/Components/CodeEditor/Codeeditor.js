@@ -12,7 +12,7 @@ import {
   TextField,
   Typography,
 } from "@material-ui/core";
-import { PlayCircleFilled, HighlightOff } from "@material-ui/icons";
+import { PlayCircleFilled, HighlightOff, RotateLeft } from "@material-ui/icons";
 const axios = require("axios");
 require("codemirror/mode/xml/xml");
 require("codemirror/mode/javascript/javascript");
@@ -30,12 +30,12 @@ const useStyles = makeStyles((theme) => ({
     width: "100%",
   },
   codeMirrorGrid: {
-    height: "50%",
+    height: "91vh",
   },
   codeMirrorPanel: {
     // height: "45vh",
     height: "100%",
-
+    // justifySelf: "flex-end",
     backgroundColor: "black",
   },
   codeMirrorPanelGrid: {
@@ -43,9 +43,17 @@ const useStyles = makeStyles((theme) => ({
   },
   console: {
     // backgroundColor: "black",
-    height: "100%",
+    height: "35vh",
     width: "100%",
-    overflow: "auto",
+    // overflow: "auto",
+  },
+  summary: {
+    width: "100%",
+    height: "100%",
+    padding: theme.spacing(0, 0, 0, 3),
+  },
+  summaryResize: {
+    height: "100%",
   },
   timeConsoleHeight: {
     // height: "10%",
@@ -84,6 +92,18 @@ const useStyles = makeStyles((theme) => ({
       backgroundColor: "red",
     },
   },
+  resetBtn: {
+    color: "white",
+    backgroundColor: "grey",
+    margin: theme.spacing(1, 1, 0, 1),
+    "&:hover": {
+      backgroundColor: "darkgrey",
+    },
+    "&:focus": {
+      outline: "none",
+      backgroundColor: "grey",
+    },
+  },
   buttonPanel: {
     paddingBottom: 7,
     borderBottom: "1px solid grey",
@@ -95,7 +115,7 @@ const useStyles = makeStyles((theme) => ({
     align: "right",
   },
   paper: {
-    height: "91vh",
+    height: "45vh",
   },
   subpaper: {
     backgroundColor: "#D1D1D1",
@@ -109,19 +129,42 @@ const useStyles = makeStyles((theme) => ({
 export default function Codeeditor(props) {
   const classes = useStyles();
   let [value, setValue] = useState("");
+  let [originalVal, setOriVal] = useState("");
   let [output, setOutput] = useState("");
   let [timeTook, setTime] = useState("");
+  let [probName, setProbName] = useState("");
+  let [probSummary, setProbSummary] = useState("");
+  let [probTopic, setProbTopic] = useState("");
   let options = {
     mode: "text/x-csrc",
-    // json: "true",
     lineNumbers: true,
     theme: "material",
     smartIndent: false,
     tabSize: 2,
   };
+  // useEffect(() => {
+  //   console.log("Output eeffect", output);
+  // }, [output]);
   useEffect(() => {
-    console.log("Output eeffect", output);
-  }, [output]);
+    axios
+      .get("http://165.22.38.77:3001/code")
+      .then((res) => {
+        console.log("Get response", res);
+        setOriVal(res.data.problem);
+        setValue(res.data.problem);
+        setProbName(res.data.problem_name);
+        setProbSummary(res.data.problem_summary);
+        setProbTopic(res.data.problem_topic);
+      })
+      .catch((error) => {
+        console.log("Get err", error);
+      });
+  }, []);
+
+  const handleReset = () => {
+    console.log("Resetting");
+    setValue(originalVal);
+  };
   const handleRun = async () => {
     setOutput("Compiling code...");
     setTime("");
@@ -136,16 +179,15 @@ export default function Codeeditor(props) {
         .replace(/\\f/g, "\\f");
     };
     value = value.escapeSpecialChars();
-    console.log("Before:", value);
+    // let newValue = JSON.stringify(value);
+    // console.log("Before:", newValue);
 
     await axios
       .post("http://165.22.38.77:3001/code", { input: value })
       .then((res) => {
         console.log("response", res);
-        // var outputStr = res.data.output.split("\n").join("<br/>");
         setOutput(res.data.output);
         setTime(res.data.time_taken);
-        // console.log("Output", outputStr);
       })
       .catch((error) => {
         if (error.response) {
@@ -169,40 +211,40 @@ export default function Codeeditor(props) {
     >
       <CssBaseline />
       <Grid container>
-        <Grid item xs={12} md={5} lg={5}>
-          <Paper className={classes.paper}>
-            <Typography variant="h6" gutterBottom className={classes.subpaper}>
-              Topic 1 - Linked List
-            </Typography>
-            <Typography
-              variant="body1"
-              gutterBottom
-              className={classes.heading}
-            >
-              body1. Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-              Quos blanditiis tenetur unde suscipit, quam beatae rerum inventore
-              consectetur, neque doloribus, cupiditate numquam dignissimos
-              laborum fugiat deleniti? Eum quasi quidem quibusdam.
-            </Typography>
-          </Paper>
-        </Grid>
-        <Grid container item xs={12} md={7} lg={7} direction="column">
-          <Grid className={classes.codeMirrorGrid}>
-            <CodeMirror
-              value={value}
-              options={options}
-              onBeforeChange={(editor, data, value) => {
-                setValue(value);
-              }}
-              onChange={(editor, data, value) => {
-                // console.log("OnChange", value);
-              }}
-              className={classes.codeMirror}
-            />
+        <Grid container item direction="column" xs={12} md={6} lg={6}>
+          <Grid item>
+            <Paper className={classes.paper}>
+              <Typography
+                variant="h6"
+                gutterBottom
+                className={classes.subpaper}
+              >
+                Topic 1 - {probTopic} from {probName}
+              </Typography>
+              {/* <Typography
+                variant="body1"
+                gutterBottom
+                className={classes.heading}
+              >
+                {probSummary}
+              </Typography> */}
+              <TextField
+                value={probSummary}
+                multiline
+                rows={12}
+                // disabled
+                className={classes.summary}
+                InputProps={{
+                  classes: { input: classes.summaryResize },
+                  readOnly: true,
+                  disableUnderline: true,
+                }}
+              />
+            </Paper>
           </Grid>
-          <Grid className={classes.codeMirrorPanelGrid}>
+          <Grid item className={classes.codeMirrorPanelGrid}>
             <Paper className={classes.codeMirrorPanel}>
-              <Grid className={classes.buttonPanel} direction="row">
+              <Grid className={classes.buttonPanel}>
                 <Chip
                   onClick={handleRun}
                   label="Run Code"
@@ -215,6 +257,13 @@ export default function Codeeditor(props) {
                   label="Clear Console"
                   className={classes.clearBtn}
                   icon={<HighlightOff style={{ color: "white" }} />}
+                  clickable
+                />
+                <Chip
+                  onClick={handleReset}
+                  label="Reset Problem"
+                  className={classes.resetBtn}
+                  icon={<RotateLeft style={{ color: "white" }} />}
                   clickable
                 />
                 {/* <Typography
@@ -232,7 +281,9 @@ export default function Codeeditor(props) {
                   rows={10}
                   disabled
                   className={classes.console}
-                  InputProps={{ classes: { disabled: classes.consoleResize } }}
+                  InputProps={{
+                    classes: { disabled: classes.consoleResize },
+                  }}
                 />
                 <TextField
                   value={timeTook !== "" ? "Finished in " + timeTook : ""}
@@ -242,6 +293,21 @@ export default function Codeeditor(props) {
                 />
               </Grid>
             </Paper>
+          </Grid>
+        </Grid>
+        <Grid container item xs={12} md={6} lg={6} direction="column">
+          <Grid className={classes.codeMirrorGrid}>
+            <CodeMirror
+              value={value}
+              options={options}
+              onBeforeChange={(editor, data, value) => {
+                setValue(value);
+              }}
+              onChange={(editor, data, value) => {
+                // console.log("OnChange", value);
+              }}
+              className={classes.codeMirror}
+            />
           </Grid>
         </Grid>
       </Grid>
