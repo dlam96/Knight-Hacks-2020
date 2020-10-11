@@ -50,7 +50,7 @@
 ## About The Project
 <p align="center">
   <a href="https://github.com/dlam96/Knight-Hacks-2020">
-    <img src="images/demo1.png" alt="Logo" width="1000" height="500">
+    <img src="images/demo1.png" alt="Logo" width="1000" height="450">
   </a>
 </p>
 
@@ -63,7 +63,7 @@ Here's why:
 
 <p align="center">
   <a href="https://github.com/dlam96/Knight-Hacks-2020">
-    <img src="images/demo2.png" alt="Logo" width="1000" height="500">
+    <img src="images/demo2.png" alt="Logo" width="1000" height="450">
   </a>
 </p>
 
