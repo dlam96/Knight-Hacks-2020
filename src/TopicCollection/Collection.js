@@ -12,19 +12,14 @@ export default function Collection(props)
     // todo props key = props id = array index
     return (
         <div>
-
             <div style={{ marginLeft: "5%", marginTop: "2.5%" }}>
-                {/* use ternary here */}
-                {props.isTopic ? "Topic" + props.id : props.term}
+                {props.isTopic ? "Topic " + props.id : props.term}
             </div>
             <hr className="underline" />
             <Grid container direction="row" spacing={10} justify="center" alignItems="center">
-                {/* use ternary here */}
                 {props.isTopic ?
                     listOfTopics.map((elem, idx) => <CardInfo key={idx} id={idx} desc={elem.desc} />) :
                     listOfTests.map((elem, idx) => <CardInfo key={idx} id={idx} desc={elem.desc} />)}
-
-
             </Grid>
         </div>
     )
