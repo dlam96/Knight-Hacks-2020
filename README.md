@@ -16,7 +16,7 @@
     <img src="images/logo.png" alt="Logo" width="80" height="80">
   </a>
 
-  <h3 align="center">FE Academy Web Application</h3>
+  <h2 align="center">FE Academy FrontEnd</h2>
 
   <p align="center">
     An interactive coding environment that teaches Computer Science fundamentals!
