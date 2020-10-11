@@ -286,7 +286,11 @@ export default function Codeeditor(props) {
                   }}
                 />
                 <TextField
-                  value={timeTook !== "" ? "Finished in " + timeTook : ""}
+                  value={
+                    timeTook !== ""
+                      ? "Finished in " + parseFloat(timeTook).toFixed(2)
+                      : ""
+                  }
                   disabled
                   className={classes.timeConsoleHeight}
                   InputProps={{ classes: { disabled: classes.timeConsole } }}
