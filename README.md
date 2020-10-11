@@ -85,7 +85,7 @@ git clone https://github.com/dlam96/Knight-Hacks-2020
 ```sh
 yarn install
 ```
-3. Enter your API in `config.js`
+3. Start the server
 ```sh
 yarn start
 ```
