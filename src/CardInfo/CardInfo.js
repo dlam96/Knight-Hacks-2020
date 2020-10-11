@@ -23,6 +23,7 @@ const useStyles = makeStyles({
 });
 
 
+// Boiler plate for a topic or test card, represented by an id and a filler description
 
 export default function CardInfo(props)
 {

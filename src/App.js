@@ -35,6 +35,9 @@ const useStyles = makeStyles((theme) => ({
 // jshint ignore : start
 export default function App()
 {
+  // isTopic will act as the global flag for
+  // deciding whether we show information
+  // by topic or by test date
   const [isTopic, setFlag] = React.useState(false);
   const classes = useStyles();
 

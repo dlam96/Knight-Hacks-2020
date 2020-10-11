@@ -9,7 +9,7 @@ import Grid from '@material-ui/core/Grid';
 
 export default function Collection(props)
 {
-    // todo props key = props id = array index
+    // cardInfo props key = props id = array index
     return (
         <div>
             <div style={{ marginLeft: "5%", marginTop: "2.5%" }}>
