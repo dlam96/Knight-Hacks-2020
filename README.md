@@ -12,7 +12,7 @@
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
-  <a href="https://github.com/othneildrew/Best-README-Template">
+  <a href="https://github.com/dlam96/Knight-Hacks-2020">
     <img src="images/logo.png" alt="Logo" width="80" height="80">
   </a>
 
@@ -20,8 +20,6 @@
 
   <p align="center">
     An interactive coding environment that teaches Computer Science fundamentals!
-    <br />
-    <a href="https://github.com/othneildrew/Best-README-Template"><strong>Explore the docs »</strong></a>
     <br />
     <br />
     <a href="https://github.com/dlam96/Knight-Hacks-2020/">View Demo</a>
@@ -53,8 +51,7 @@
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
-
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
+[![Product Name Screen Shot][product-screenshot]](https://github.com/dlam96/Knight-Hacks-2020/blob/master/images/demo1.png)
 
 There are many great README templates available on GitHub, however, I didn't find one that really suit my needs so I created this enhanced one. I want to create a README template so amazing that it'll be the last one you ever need.
 
